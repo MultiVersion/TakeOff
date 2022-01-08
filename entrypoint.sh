@@ -11,9 +11,9 @@ if [[ "$MV_FILE" == *".jar" ]]; then
         exit 11;
     fi
 
-    CutMC_VERSION=$(echo "$MC_VERSION" | cut -d "." -f 2)
+    MC_VERSION_CUT=$(echo "$MC_VERSION" | cut -d "." -f 2)
 
-    case "$CutMC_VERSION" in
+    case "$MC_VERSION_CUT" in
         1[8-9]|2[0-9]|"latest")
             MV_JAVA_VERSION=17
             ;;
