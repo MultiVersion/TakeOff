@@ -8,7 +8,7 @@ if [[ "$MV_FILE" == *".jar" ]]; then
     if [[ -z "$MC_VERSION" || -z "$MC_VARIANT" ]]; then
         echo "Hello, You need to set the variables for Minecraft!";
         echo "Go to startup tab and change";
-        exit 1;
+        exit 11;
     fi
 
     CutMC_VERSION=$(echo "$MC_VERSION" | cut -d "." -f 2)
@@ -40,7 +40,7 @@ if [[ "$MV_FILE" == *".phar" ]]; then
     if [[ -z "$MC_VERSION" ]]; then
         echo "Hello, You need to set the variables for Minecraft!";
         echo "Go to startup tab and change";
-        exit 1;
+        exit 11;
     fi
 
     if [[ ! -f "$MV_FILE" ]]; then
