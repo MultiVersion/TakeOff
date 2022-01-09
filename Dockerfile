@@ -18,7 +18,7 @@ RUN cd /opt && tar -xzvf php.tar.gz && rm php.tar.gz && \
 RUN apt update
 RUN DEBIAN_FRONTEND=noninteractive apt install -y openjdk-8-jdk openjdk-16-jdk openjdk-17-jdk curl unzip python3 python3-pip nodejs
 
-# Pterodactyl User
+# Pterodactyl Setup (Create container user)
 RUN adduser --disabled-password --home /home/container container
 USER container
 ENV USER=container HOME=/home/container
