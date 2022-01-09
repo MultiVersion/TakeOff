@@ -1,14 +1,17 @@
 #! /bin/bash
 
-echo "MultiVersion | Take Off 1.1";
+echo "MultiVersion | Take Off 1.2";
 echo "Made By Dviih. https://discord.gg/Fqmhcs45pp";
+
+if [[ -z "$MC_VERSION" ]]; then
+    MC_VERSION=latest
+fi
 
 if [[ "$MV_FILE" == *".jar" ]]; then
 
-    if [[ -z "$MC_VERSION" || -z "$MC_VARIANT" ]]; then
-        echo "Hello, You need to set the variables for Minecraft!";
-        echo "Go to startup tab and change";
-        exit 11;
+    if [[ -z "$MC_VARIANT" ]]; then
+        echo "No variant was set! using: VANILLA";
+        MC_VARIANT=vanilla
     fi
 
     MC_VERSION_CUT=$(echo "$MC_VERSION" | cut -d "." -f 2)
@@ -36,12 +39,6 @@ if [[ "$MV_FILE" == *".jar" ]]; then
 fi
 
 if [[ "$MV_FILE" == *".phar" ]]; then
-
-    if [[ -z "$MC_VERSION" ]]; then
-        echo "Hello, You need to set the variables for Minecraft!";
-        echo "Go to startup tab and change";
-        exit 11;
-    fi
 
     if [[ ! -f "$MV_FILE" ]]; then
         curl -sL https://mirror.dviih.tech/minecraft/pocketmine/"$MC_VERSION" -o "$MV_FILE";
@@ -89,10 +86,9 @@ fi
 
 if [[ "$MC_VARIANT" == "bedrock_server" ]]; then
 
-    if [[ -z "$MC_VERSION" || -z "$MV_FILE" ]]; then
-        echo "Hello, You need to set the variables for Minecraft!";
-        echo "Go to startup tab and change";
-        exit 11;
+    if [[ -z "$MV_FILE" ]]; then
+        echo "No file name was set! using 'bedrock_server'";
+        MV_FILE=bedrock_server
     fi
 
     if [[ ! -f "$MV_FILE" ]]; then
