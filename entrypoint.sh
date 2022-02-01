@@ -69,8 +69,8 @@ fi
 
 if [[ "$MV_FILE" == *".py" ]]; then
 
-    if [[ -f requeriments.txt && ! -d "$HOME/.local/lib/python*/site-packages" ]]; then
-        pip install -r requeriments.txt
+    if [[ -f requirements.txt && ! -d "$HOME/.local/lib/python*/site-packages" ]]; then
+        pip install -r requirements.txt
     fi
 
     if [[ -f "$MV_FILE" ]]; then
